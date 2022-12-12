@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 import * as dotenv from "dotenv";
 import "./socket.js";
 
@@ -30,6 +31,8 @@ app.use(function (err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
 });  
+
+app.use(cors());
 
 app.use(cookieParser());
 
