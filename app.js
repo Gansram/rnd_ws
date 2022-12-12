@@ -21,6 +21,10 @@ app.use(
   })
 );
 
+import { router as adminRouter } from "./socket.js";
+
+app.use("/playgroup/admin", adminRouter);
+
 //socket Io connections
 app.use(function (err, req, res, next) {
     // set locals, only providing error in development
@@ -83,8 +87,8 @@ function onError(error) {
     console.log("\nListening on " + bind);
   }
   
-  //app.listen(port);
+  app.listen(6252);
   app.on("error", onError);
   app.on("listening", onListening);
   
-  //console.log("Server started on port " + port);
+  console.log("Server started on port " + 6252);
