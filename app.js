@@ -21,7 +21,6 @@ app.use(
   })
 );
 
-
 //socket Io connections
 app.use(function (err, req, res, next) {
     // set locals, only providing error in development
@@ -32,7 +31,11 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
 });  
 
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
+
+app.options('*', cors())
 
 app.use(cookieParser());
 
